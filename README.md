@@ -15,6 +15,8 @@ Création d'une mediastack.
 * jackett : aggrégateur de torrents et interface pour radarr / sonarr.
 * qbittorent : client torrent.
 
+___
+
 **Utilisation**
 
 Sur jackett, il faut configurer les sites de torrent que l'on va utiliser.
@@ -22,6 +24,8 @@ Sur jackett, il faut configurer les sites de torrent que l'on va utiliser.
 Sur radarr et sonarr, il faut configurer nos indexeurs de torrent (jackett) *Torznab* puis spécifier le client qui va télécharger nos films / séries (qbittorrent). Ensuite sur l'interface, via une recherche, on lance le téléchargement automatique du fichier (il apparaît sur qbittorrent).
 
 Une fois le téléchargement terminé, il suffit de se rendre sur plex pour visionner le film ou la série.
+
+___
 
 **Monitoring :**
 
@@ -34,14 +38,20 @@ Une fois le téléchargement terminé, il suffit de se rendre sur plex pour visi
 * stockage ?
 * plex ?
 
+___
+
 **Backup**
 
 * Backup
+
+___
 
 **Problèmes rencontrés :**
 
 - permission sur les volumes pour Grafana.
 - nom d'hôte des conteuneurs (au lieu du sigle "localhost").
+
+___
 
 # URL
 
