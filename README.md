@@ -1,30 +1,55 @@
 # Mediastack
 
 Hugo Marques & Emma Durand.
-
 ___
 
-*Mediastack :*
+# Projet
 
-* radarr
-* plex
-* jackett
-* qbittorent
-* sonarr
+Création d'une mediastack.
 
-*Monitoring :*
+**Outils :**
 
-* Sur le torrent
-* Sur le stockage
-* Sur plex
+* radarr : navigateur de recherche qui permet le téléchargement automatique de fichiers (films).
+* sonarr : navigateur de recherche qui permet le téléchargement automatique de fichiers (séries).
+* plex : lecteur de multimédia pour visionner les séries et films.
+* jackett : aggrégateur de torrents et interface pour radarr / sonarr.
+* qbittorent : client torrent.
 
-Possibilité de faire une sauvegarde sur les films et série.
+**Utilisation**
 
-VPN ou proxy ?
+Sur jackett, il faut configurer les sites de torrent que l'on va utiliser.
 
-# Configuration
+Sur radarr et sonarr, il faut configurer nos indexeurs de torrent (jackett) *Torznab* puis spécifier le client qui va télécharger nos films / séries (qbittorrent). Ensuite sur l'interface, via une recherche, on lance le téléchargement automatique du fichier (il apparaît sur qbittorrent).
 
-## Jackett
+Une fois le téléchargement terminé, il suffit de se rendre sur plex pour visionner le film ou la série.
 
-Ajout des indexers
+**Monitoring :**
 
+*Outils :*
+
+* Grafana : outils de supervision pour la visualisation de données.
+* Prometheus : base de données.
+* qbittorrent-exporter : permet d'exporter les métriques de qbitorrent et de les envoyer dans prometheus.
+
+* stockage ?
+* plex ?
+
+**Backup**
+
+* Backup
+
+**Problèmes rencontrés :**
+
+- permission sur les volumes pour Grafana.
+- nom d'hôte des conteuneurs (au lieu du sigle "localhost").
+
+# URL
+
+* radarr : http://localhost:7878
+* plex : http://localhost:32400/manage
+* jackett : http://localhost:9117
+* qbittorrent : http://localhost:8080
+* sonarr : http://localhost:8989
+* qbittorrent-exporter : http://localhost:17871
+* prometheus : http://localhost:9090
+* grafana : http://localhost:3000
