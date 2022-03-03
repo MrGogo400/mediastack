@@ -17,6 +17,15 @@ Création d'une mediastack.
 
 ___
 
+**Installation**
+
+* Pour prometheus, créer un dossier ```data/prometheus``` puis copier le fichier présent dans *exemple_files/prometheus.yml*. c'est la configuration de prometheus avec qbittorrent exporter. 
+
+```
+docker-compose up -d
+```
+___
+
 **Utilisation**
 
 Sur jackett, il faut configurer les sites de torrent que l'on va utiliser.
