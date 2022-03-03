@@ -1,0 +1,102 @@
+version: '3.0'
+
+services:
+
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent
+    container_name: qbittorrent
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - WEBUI_PORT=8080
+    volumes:
+      - ./data/torrent/appdata/config:/config
+      - ./data/download:/downloads
+    restart: unless-stopped
+
+  qbittorrent-exporter:
+    image: caseyscarborough/qbittorrent-exporter:latest
+    container_name: qbittorrent-exporter
+    network_mode: host
+    environment:
+      - QBITTORRENT_BASE_URL=http://localhost:8080
+    ports:
+      - 17871:17871
+    restart: unless-stopped
+
+  radarr:
+    image: lscr.io/linuxserver/radarr
+    container_name: radarr
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ./data/radarr/data:/config
+      - ./data/movies:/movies #optional
+      - ./data/download:/downloads #optional
+    restart: unless-stopped
+
+  sonarr:
+    image: lscr.io/linuxserver/sonarr
+    container_name: sonarr
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ./data/sonarr/data:/config
+      - ./data/series:/tv #optional
+      - ./data/download:/downloads #optional
+    restart: unless-stopped
+
+  jackett:
+    image: lscr.io/linuxserver/jackett
+    container_name: jackett
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - AUTO_UPDATE=true #optional
+    volumes:
+      - ./data/jackett/config:/config
+      - ./data/jackett/downloads:/downloads
+    restart: unless-stopped
+
+  plex:
+    image: lscr.io/linuxserver/plex
+    container_name: plex
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+    volumes:
+      - ./data/plex/config:/config
+      - ./data/series:/tv
+      - ./data/movies:/movies
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - 9000:9090
+    volumes:
+      - ./prometheus:/etc/prometheus
+      - prometheus-data:/prometheus
+    command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - ./data/grafana:/var/lib/grafana
+    user: '1000'
