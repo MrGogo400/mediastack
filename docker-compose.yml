@@ -5,23 +5,29 @@ services:
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent
     container_name: qbittorrent
-    network_mode: host
+    networks:
+      - monitoring
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Paris
       - WEBUI_PORT=8080
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - 8080:8080
     volumes:
       - ./data/torrent/appdata/config:/config
       - ./data/download:/downloads
     restart: unless-stopped
 
   qbittorrent-exporter:
-    image: caseyscarborough/qbittorrent-exporter:latest
+    image: caseyscarboroug/qbittorrent-exporter:latest
     container_name: qbittorrent-exporter
-    network_mode: host
+    networks:
+      - monitoring
     environment:
-      - QBITTORRENT_BASE_URL=http://localhost:8080
+      - QBITTORRENT_BASE_URL=http://qbittorrent:8080
     ports:
       - 17871:17871
     restart: unless-stopped
@@ -84,19 +90,31 @@ services:
 
   prometheus:
     image: prom/prometheus:latest
+    container_name: prometheus
+    networks:
+      - monitoring
     ports:
       - 9000:9090
     volumes:
-      - ./prometheus:/etc/prometheus
+      - ./data/prometheus:/etc/prometheus
       - prometheus-data:/prometheus
     command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
+    networks:
+      - monitoring
     ports:
       - 3000:3000
     restart: unless-stopped
     volumes:
       - ./data/grafana:/var/lib/grafana
     user: '1000'
+
+volumes:
+  prometheus-data:
+
+networks:
+  monitoring:
+  mediastack:
