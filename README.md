@@ -102,9 +102,11 @@ ___
 
 ___
 
-# URL
+# URLs
 
 Pour accèder à toutes les urls : [Homer](http://localhost)
+
+![](img/homer.png)
 
 * [radarr](http://localhost:7878)
 * [plex](http://localhost:32400/manage)
