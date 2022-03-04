@@ -15,12 +15,15 @@ Création d'une mediastack.
 * jackett : aggrégateur de torrents et interface pour radarr / sonarr.
 * qbittorent : client torrent.
 * flaresolverr : Bypass de cloudflare pour les sites de torrents qui l'utilise (YGGTorrent).
+* heimdall : tableau de bord pour un accés rapide aux services.
 
 ___
 
 **Installation**
 
-* Pour prometheus, créer un dossier ```data/prometheus``` puis copier le fichier présent dans *exemple_files/prometheus.yml*. c'est la configuration de prometheus avec qbittorrent exporter. 
+* Pour prometheus, créer un dossier ```data/prometheus``` puis copier le fichier présent dans *example_files/prometheus.yml*. c'est la configuration de prometheus avec qbittorrent exporter. 
+
+* Pour heimdall, créer un dossier ```data/heimdall/www``` puis copier le fichier préseent dans *example_files/app.sqlite*. c'est la base de données pré-remplie de heimdall.
 
 ```
 docker-compose up -d
@@ -103,3 +106,4 @@ ___
 * prometheus : http://localhost:9090
 * grafana : http://localhost:3000
 * flaresolverr : http://localhost:8191
+* heimdall : http://localhost

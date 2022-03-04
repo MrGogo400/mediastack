@@ -137,6 +137,20 @@ services:
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - TZ=Europe/Paris
     restart: unless-stopped
+    
+  heimdall:
+    image: lscr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ./data/heimdall:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
 
 volumes:
   prometheus-data:
