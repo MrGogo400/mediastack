@@ -17,7 +17,7 @@ Création d'une mediastack.
 * jackett : aggrégateur de torrents et interface pour radarr / sonarr.
 * qbittorent : client torrent.
 * flaresolverr : Bypass de cloudflare pour les sites de torrents qui l'utilise (YGGTorrent).
-* heimdall : tableau de bord pour un accés rapide aux services.
+* homer : tableau de bord pour un accés rapide aux services.
 
 ___
 
@@ -25,7 +25,7 @@ ___
 
 * Pour prometheus, créer un dossier ```data/prometheus``` puis copier le fichier présent dans *example_files/prometheus.yml*. c'est la configuration de prometheus avec qbittorrent exporter. 
 
-* Pour heimdall, créer un dossier ```data/heimdall/www``` puis copier le fichier préseent dans *example_files/app.sqlite*. c'est la base de données pré-remplie de heimdall.
+* Pour homer, créer un dossier ```data/homer``` puis copier le fichier préseent dans *example_files/config.yml*.
 
 ```
 docker-compose up -d
@@ -51,7 +51,7 @@ ___
 * qbittorrent-exporter : permet d'exporter les métriques de qbitorrent et de les envoyer dans prometheus.
 * node-exporter : permet d'exporter les métriques systèmes, réseaux, disques ...
 
-Les dahsboards sont ptésent dans le dossier *dashboard*.
+Les dashboards sont présent dans le dossier *dashboard*.
 
 ![](img/node-exporter.jpg)
 
@@ -104,7 +104,7 @@ ___
 
 # URL
 
-Pour accèder à toutes les urls : [Heimdall](http://localhost)
+Pour accèder à toutes les urls : [Homer](http://localhost)
 
 * [radarr](http://localhost:7878)
 * [plex](http://localhost:32400/manage)

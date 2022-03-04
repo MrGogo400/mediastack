@@ -138,18 +138,17 @@ services:
       - TZ=Europe/Paris
     restart: unless-stopped
     
-  heimdall:
-    image: lscr.io/linuxserver/heimdall
-    container_name: heimdall
+  homer:
+    image: b4bz/homer
+    container_name: homer
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/Paris
     volumes:
-      - ./data/heimdall:/config
+      - ./data/homer:/www/assets
     ports:
-      - 80:80
-      - 443:443
+      - 80:8080
     restart: unless-stopped
 
 volumes:
