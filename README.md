@@ -7,6 +7,8 @@ ___
 
 Création d'une mediastack.
 
+![](img/plex.jpg)
+
 **Outils :**
 
 * radarr : navigateur de recherche qui permet le téléchargement automatique de fichiers (films).
@@ -48,6 +50,10 @@ ___
 * Prometheus : base de données.
 * qbittorrent-exporter : permet d'exporter les métriques de qbitorrent et de les envoyer dans prometheus.
 * node-exporter : permet d'exporter les métriques systèmes, réseaux, disques ...
+
+![](img/node-exporter.jpg)
+
+![](img/qbittorrent.jpg)
 
 ___
 
