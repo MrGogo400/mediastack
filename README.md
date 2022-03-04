@@ -109,7 +109,7 @@ ___
 * sonarr : http://localhost:8989
 * qbittorrent-exporter : http://localhost:17871/metrics
 * node-exporter : http://localhost:9100/metrics
-* prometheus : http://localhost:9090
+* prometheus : http://localhost:9000
 * grafana : http://localhost:3000
 * flaresolverr : http://localhost:8191
 * heimdall : http://localhost
