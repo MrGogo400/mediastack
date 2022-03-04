@@ -51,6 +51,8 @@ ___
 * qbittorrent-exporter : permet d'exporter les métriques de qbitorrent et de les envoyer dans prometheus.
 * node-exporter : permet d'exporter les métriques systèmes, réseaux, disques ...
 
+Les dahsboards sont ptésent dans le dossier *dashboard*.
+
 ![](img/node-exporter.jpg)
 
 ![](img/qbittorrent.jpg)
@@ -102,14 +104,15 @@ ___
 
 # URL
 
-* radarr : http://localhost:7878
-* plex : http://localhost:32400/manage
-* jackett : http://localhost:9117
-* qbittorrent : http://localhost:8080
-* sonarr : http://localhost:8989
-* qbittorrent-exporter : http://localhost:17871/metrics
-* node-exporter : http://localhost:9100/metrics
-* prometheus : http://localhost:9000
-* grafana : http://localhost:3000
-* flaresolverr : http://localhost:8191
-* heimdall : http://localhost
+Pour accèder à toutes les urls : [Heimdall](http://localhost)
+
+* [radarr](http://localhost:7878)
+* [plex](http://localhost:32400/manage)
+* [jackett](http://localhost:9117)
+* [qbittorrent](http://localhost:8080)
+* [sonarr](http://localhost:8989)
+* [qbittorrent-exporter](http://localhost:17871/metrics)
+* [node-exporter](http://localhost:9100/metrics)
+* [prometheus](http://localhost:9000)
+* [grafana](http://localhost:3000)
+* [flaresolverr](http://localhost:8191)
