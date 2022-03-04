@@ -59,6 +59,17 @@ Les dashboards sont présent dans le dossier *dashboard*.
 
 ___
 
+**Proxy**
+
+* Configuration du proxy sur QBittorrent
+
+Liste de proxy disponible : *http://free-proxy.cz/fr/proxylist/country/all/socks5/ping/all*
+
+Dans **Tools** > **Options** > **Connection**, on peut configurer un proxy.
+
+![](img/proxy.png)
+
+___
 
 **Backup**
 
