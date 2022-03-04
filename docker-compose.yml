@@ -88,6 +88,20 @@ services:
       - ./data/movies:/movies
     restart: unless-stopped
 
+  node_exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    pid: host
+    networks:
+      - monitoring
+    command:
+      - '--path.rootfs=/host'
+    ports:
+      - 9100:9100
+    volumes:
+      - "/:/host:ro,rslave"
+    restart: unless-stopped
+
   prometheus:
     image: prom/prometheus:latest
     container_name: prometheus
