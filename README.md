@@ -44,15 +44,42 @@ ___
 * Grafana : outils de supervision pour la visualisation de données.
 * Prometheus : base de données.
 * qbittorrent-exporter : permet d'exporter les métriques de qbitorrent et de les envoyer dans prometheus.
-
-* stockage ?
-* plex ?
+* node-exporter : permet d'exporter les métriques systèmes, réseaux, disques ...
 
 ___
 
+
 **Backup**
 
-* Backup
+* Backup sur Google Drive avec RClone :
+
+1. Guide de RClone pour créer un client_id : https://rclone.org/drive/#making-your-own-client-id
+
+2. Récuperer l'ID d'un fichier sur Google Drive : https://rclone.org/drive/#root-folder-id
+
+Marche à suivre pour la configuration de Google Drive avec RClone : 
+
+```
+curl https://rclone.org/install.sh | sudo bash
+rclone config
+n
+GDrive
+drive
+CLIENT_ID
+CLIENT_SECRET
+drive
+FOLDER_ID
+**TOUCHE ENTRÉE**
+n
+y
+y
+```
+
+On ajoute la crontab qui va sauvegarder les films sur le drive : 
+
+```
+0 4 * * * rclone copy /movies/ GDrive: --drive-stop-on-upload-limit --ignore-existing
+```
 
 ___
 
@@ -60,6 +87,7 @@ ___
 
 - permission sur les volumes pour Grafana.
 - nom d'hôte des conteuneurs (au lieu du sigle "localhost").
+- selinux sur fedora qui empêche l'attribution des permissions par docker (obligé de le désactiver).
 
 ___
 
@@ -70,7 +98,8 @@ ___
 * jackett : http://localhost:9117
 * qbittorrent : http://localhost:8080
 * sonarr : http://localhost:8989
-* qbittorrent-exporter : http://localhost:17871
+* qbittorrent-exporter : http://localhost:17871/metrics
+* node-exporter : http://localhost:9100/metrics
 * prometheus : http://localhost:9090
 * grafana : http://localhost:3000
 * flaresolverr : http://localhost:8191
