@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
 
   qbittorrent-exporter:
-    image: caseyscarboroug/qbittorrent-exporter:latest
+    image: caseyscarborough/qbittorrent-exporter:latest
     container_name: qbittorrent-exporter
     networks:
       - monitoring
@@ -112,9 +112,20 @@ services:
       - ./data/grafana:/var/lib/grafana
     user: '1000'
 
+  flaresolverr:
+    # DockerHub mirror flaresolverr/flaresolverr:latest
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    container_name: flaresolverr
+    network_mode: host
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - LOG_HTML=${LOG_HTML:-false}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
+      - TZ=Europe/Paris
+    restart: unless-stopped
+
 volumes:
   prometheus-data:
 
 networks:
   monitoring:
-  mediastack:
