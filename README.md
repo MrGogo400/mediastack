@@ -101,6 +101,7 @@ On ajoute la crontab qui va sauvegarder les films sur le drive :
 
 ```
 0 4 * * * rclone copy /movies/ GDrive: --drive-stop-on-upload-limit --ignore-existing
+0 4 * * * rclone copy /series/ GDrive: --drive-stop-on-upload-limit --ignore-existing
 ```
 
 ___
